@@ -3,12 +3,13 @@
 // is your "component frontmatter". It never runs in the browser.
 console.log('This runs in your terminal, not the browser!');
 import HighlightBox from '../components/highlight-box.astro';
-import Layout from "../layout/Layout.astro";
+import Layout from "../layouts/Layout.astro";
 ---
 <!-- Below is your "component template." It's just HTML, but with
     some magic sprinkled in to help you build great templates. -->
 <Layout>
   <h1>Hello Bro!</h1>
+  <a href="/b" class="">Go To Blog</a>
   <HighlightBox>
     Astro is an all-in-one web framework. It includes everything you need to create a website, built-in. There are also hundreds of different integrations and API hooks available to customize a project to your exact use case and needs.
   </HighlightBox>
