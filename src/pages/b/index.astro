@@ -7,11 +7,11 @@ import FormattedDate from '../../components/FormattedDate.astro';
 import Header from '../../components/Header.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../../consts';
 
-// const posts = (await getPostsMetaAndContent())
-// if (!posts) return;
 const posts = (await getCollection('blog')).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
+// check for time
+await fetch(`${Astro.url.origin}/api/update-blog-content`)
 
 ---
 
@@ -20,9 +20,6 @@ const posts = (await getCollection('blog')).sort(
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 		<style>
-			main {
-				width: 960px;
-			}
 			ul {
 				display: flex;
 				flex-wrap: wrap;
@@ -60,6 +57,7 @@ const posts = (await getCollection('blog')).sort(
 				margin: 0;
 				color: rgb(var(--black));
 				line-height: 1;
+				font-size: 1.2em;
 			}
 			.date {
 				margin: 0;
@@ -73,11 +71,11 @@ const posts = (await getCollection('blog')).sort(
 				box-shadow: var(--box-shadow);
 			}
 			@media (max-width: 720px) {
-				main {
-				width: 450px;
-			}
 				ul {
 					gap: 0.5em;
+				}
+				.title {
+					font-size: 1.8em;
 				}
 				ul li {
 					width: 100%;
@@ -87,22 +85,18 @@ const posts = (await getCollection('blog')).sort(
 					margin-bottom: 0;
 				}
 				ul li:first-child .title {
-					font-size: 1.563em;
+					font-size: 1.8em;
 				}
 				ul li:first-child img {
 					width: fit-content;
 				}
-				.title {
-					
-				}
-
 			}
 		</style>
 	</head>
-	<body class="max-w-6xl mx-auto grid grid-rows-[auto,1fr,auto] min-h-screen">
+	<body class="flex flex-col min-h-screen">
 		<Header />
-		<main class="mt-12">
-			<section>
+		<main class="">
+			<section class="">
 				<ul>
 					{posts && (posts.map((post) => (
 						<li>

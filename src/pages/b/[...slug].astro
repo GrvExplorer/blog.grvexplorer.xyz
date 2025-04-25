@@ -4,7 +4,12 @@ import { getCollection, render } from 'astro:content';
 import BlogPost from '../../layouts/BlogPost.astro';
 
 export async function getStaticPaths() {
-
+	// const posts = await getPostsMetaAndContent();
+	// if (!posts) return;
+	// return posts.map((post) => ({
+	// 	params: {slug: post.meta.id},
+	// 	props: post,
+	// }))
 
 	const posts = await getCollection('blog');
 	return posts.map((post) => ({
@@ -16,7 +21,14 @@ type Props = CollectionEntry<'blog'>;
 
 const post = Astro.props;
 const { Content } = await render(post);
-console.log(Content);
+
+// const post = Astro.props;
+// const { Content } = await render({
+// id: post.meta.id,
+// body: post.content,
+// collection: 'blog',
+// data: post.meta,
+// });
 
 ---
 

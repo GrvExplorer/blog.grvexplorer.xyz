@@ -16,4 +16,8 @@ const blog = defineCollection({
   }),
 });
 
+const remoteBlog = defineCollection({
+  
+})
+
 export const collections = { blog };

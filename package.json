@@ -1,25 +1,24 @@
 {
-  "name": "blog-post",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "",
+  "type": "module",
+  "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "astro": "astro"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "@astrojs/mdx": "^4.0.8",
     "@astrojs/react": "^4.2.0",
-    "@tailwindcss/vite": "^4.0.3",
+    "@astrojs/rss": "^4.0.11",
+    "@astrojs/sitemap": "^3.2.1",
+    "@tailwindcss/vite": "^4.1.4",
     "@types/react": "^19.0.8",
     "@types/react-dom": "^19.0.3",
     "astro": "^5.2.5",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "tailwindcss": "^4.0.3"
+    "tailwindcss": "^4.1.4"
   }
 }
